@@ -27,4 +27,7 @@ if (DEBUG) {
 include CORE . '/common/function.php';
 // 启动框架
 include CORE . '/thinkphp.php';
+
+// 实现自动加载
+spl_autoload_register('\core\thinkphp::load');
 \core\thinkphp::run();
