@@ -4,6 +4,9 @@ class indexCtrl
 {
     public function index()
     {
-        p("这是index控制器的index方法");
+        $model = new \core\lib\model();
+        $sql = "SELECT * FROM `cat`";
+        $ret = $model->query($sql);
+        p($ret->fetchAll());
     }
 }
