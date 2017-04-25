@@ -6,8 +6,9 @@ class thinkphp
     static public $classMap = array();
     static public function run()
     {
-        p('ok');
-        $route = new \core\route();
+        $route = new \core\lib\route();
+        // 打印路由对象
+        p($route);
     }
 
     // 自由加载类库
