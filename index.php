@@ -12,6 +12,7 @@ define('THINKPHP', $_SERVER['DOCUMENT_ROOT']);    // Windows下获取根目录�
 // 项目核心文件夹
 define('CORE', THINKPHP.'/core');
 define('APP', THINKPHP.'/app');
+define('MODULE', 'app');
 
 // 是否开启调试模式
 define('DEBUG', true);
@@ -30,4 +31,8 @@ include CORE . '/thinkphp.php';
 
 // 实现自动加载
 spl_autoload_register('\core\thinkphp::load');
-\core\thinkphp::run();
+try {
+    \core\thinkphp::run();
+} catch (\Exception $e) {
+    echo $e->getMessage();
+}
