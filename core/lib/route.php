@@ -1,5 +1,6 @@
 <?php
 namespace core\lib;
+use core\lib\conf;
 class route
 {
     public $ctrl;
@@ -23,7 +24,7 @@ class route
                  $this->action = $pathArr[1];
                  unset($pathArr[1]);
              } else{
-                 $this->action = 'index';
+                 $this->action = conf::get('ACTION', 'route');
              }
 
             // 把剩余的参数信息，写入$_GET
@@ -35,10 +36,9 @@ class route
                 }
                 $i += 2;
             }
-            p($_GET);
          } else{
-             $this->ctrl = 'index';
-             $this->action = 'index';
+             $this->ctrl = conf::get('CTRL', 'route');
+             $this->action = conf::get('ACTION', 'route');
          }
     }
 }

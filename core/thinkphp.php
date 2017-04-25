@@ -61,7 +61,6 @@ class thinkphp
     {
         $file = APP.'/view/'.$file;
         if (is_file($file)) {
-            p($this->assign);
             extract($this->assign);
             include $file;
         }

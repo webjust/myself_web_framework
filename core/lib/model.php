@@ -5,11 +5,10 @@ class model extends \PDO
 {
     public function __construct()
     {
-        $dsn = 'mysql:host=localhost;dbname=demo;charset=UTF8;';
-        $username = 'root';
-        $password = 'root';
+        // 读取数据库的配置信息
+        $db = \core\lib\conf::all('database');
         try {
-            parent::__construct($dsn, $username, $password);
+            parent::__construct($db['DSN'], $db['USERNAME'], $db['PASSWORD']);
         } catch (\Exception $e) {
             p($e->getMessage());
             die;
