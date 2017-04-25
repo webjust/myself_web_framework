@@ -14,6 +14,5 @@ class model extends \PDO
             p($e->getMessage());
             die;
         }
-
     }
 }

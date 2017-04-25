@@ -1,12 +1,13 @@
 <?php
 namespace app\ctrl;
-class indexCtrl
+class indexCtrl extends \core\thinkphp
 {
     public function index()
     {
-        $model = new \core\lib\model();
-        $sql = "SELECT * FROM `cat`";
-        $ret = $model->query($sql);
-        p($ret->fetchAll());
+        $data = "Hello World!";
+        $content = "这是一段内容！！！！！！！！！！！！！！！！！！！";
+        $this->assign('title', $data);
+        $this->assign('content', $content);
+        $this->display('index/index.html');
     }
 }

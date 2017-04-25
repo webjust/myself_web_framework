@@ -31,6 +31,8 @@ include CORE . '/thinkphp.php';
 
 // 实现自动加载
 spl_autoload_register('\core\thinkphp::load');
+
+// 调用基础类的run方法
 try {
     \core\thinkphp::run();
 } catch (\Exception $e) {

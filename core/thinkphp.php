@@ -3,6 +3,7 @@
 namespace core;
 class thinkphp
 {
+    public $assign;
     static public $classMap = array();
     static public function run()
     {
@@ -46,6 +47,23 @@ class thinkphp
             } else {
                 return false;
             }
+        }
+    }
+
+    // 传递数据
+    public function assign($name, $value)
+    {
+        $this->assign[$name] = $value;
+    }
+
+    // 显示视图
+    public function display($file)
+    {
+        $file = APP.'/view/'.$file;
+        if (is_file($file)) {
+            p($this->assign);
+            extract($this->assign);
+            include $file;
         }
     }
 }
