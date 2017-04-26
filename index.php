@@ -17,12 +17,24 @@ define('MODULE', 'app');
 // 是否开启调试模式
 define('DEBUG', true);
 
+// 引入composer安装的类文件
+include './vendor/autoload.php';
+
 // 关闭或者开启显示错误的开关
 if (DEBUG) {
     ini_set('display_error', 'On');
+
+    // 在项目中使用Whoops类
+    $whoops = new \Whoops\Run;
+    $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+    $whoops->register();
+
 } else {
     ini_set('display_error', 'Off');
 }
+
+// 测试 symfony/var-dumper 类效果
+dump($_SERVER);
 
 // 加载函数库
 include CORE . '/common/function.php';

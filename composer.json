@@ -1,0 +1,14 @@
+{
+    "name": "webjust/web.com",
+    "authors": [
+        {
+            "name": "webjust",
+            "email": "604854119@qq.com"
+        }
+    ],
+    "require": {
+    	"php": ">= 5.3.0",
+	"filp/whoops": "*",
+        "symfony/var-dumper": "^3.2"
+    }
+}
