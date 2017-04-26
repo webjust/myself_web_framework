@@ -7,12 +7,16 @@ class thinkphp
     static public $classMap = array();
     static public function run()
     {
+        // 初始化日志类
+        \core\lib\log::init();
+
         $route = new \core\lib\route();
         // 解析URL获取控制器和方法名
         $ctrlClass = $route->ctrl;
         $action = $route->action;
         $ctrlFile = APP.'/ctrl/'.$ctrlClass.'Ctrl.php';
         $ctrlClass = '\\'.MODULE.'\ctrl\\'.$ctrlClass.'Ctrl';
+        \core\lib\log::log('ctrl: '.$ctrlClass.'action: '.$action);
 
         // 判断控制器的类文件是否存在，否则抛出异常
         if (is_file($ctrlFile)) {
