@@ -1,17 +1,14 @@
 <?php
 namespace core\lib;
+use \Medoo\medoo;
 
-class model extends \PDO
+class model extends medoo
 {
     public function __construct()
     {
         // 读取数据库的配置信息
         $db = \core\lib\conf::all('database');
-        try {
-            parent::__construct($db['DSN'], $db['USERNAME'], $db['PASSWORD']);
-        } catch (\Exception $e) {
-            p($e->getMessage());
-            die;
-        }
+
+        parent::__construct($db);
     }
 }

@@ -33,9 +33,6 @@ if (DEBUG) {
     ini_set('display_error', 'Off');
 }
 
-// 测试 symfony/var-dumper 类效果
-dump($_SERVER);
-
 // 加载函数库
 include CORE . '/common/function.php';
 // 启动框架
