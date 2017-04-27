@@ -12,6 +12,7 @@ class catModel extends model
     public function lists()
     {
         $ret = $this->select($this->table, '*');
-        dump($ret);
+        // dump($ret);
+        return $ret;
     }
 }

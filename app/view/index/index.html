@@ -1,2 +1,12 @@
-<h1><?php echo $title; ?></h1>
-<h3><?php echo $content; ?></h3>
+{extends file='layouts/main.html'}
+{block name=body}
+<table border="1" width="50%">
+    {foreach $cats as $i}
+        <tr>
+            <td>{$i['cat_id']}</td>
+            <td>{$i.catname}</td>
+            <td>{$i.num}</td>
+        </tr>
+    {/foreach}
+</table>
+{/block}

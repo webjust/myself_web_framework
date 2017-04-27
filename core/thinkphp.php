@@ -4,7 +4,22 @@ namespace core;
 class thinkphp
 {
     public $assign;
+    public $smarty;
     static public $classMap = array();
+
+    public function __construct()
+    {
+        // 模板引擎实例化、设置
+        $this->smarty = new \Smarty;
+        $this->smarty->setTemplateDir(APP.'/view/');
+        $this->smarty->setCompileDir(THINKPHP.'/log/view_c');
+        $this->smarty->setCacheDir(THINKPHP.'/log/cache/');
+        //$smarty->force_compile = true;
+        // $this->smarty->debugging = true;
+        // $this->smarty->caching = true;
+        $this->smarty->cache_lifetime = 120;
+    }
+
     static public function run()
     {
         // 初始化日志类
@@ -57,16 +72,12 @@ class thinkphp
     // 传递数据
     public function assign($name, $value)
     {
-        $this->assign[$name] = $value;
+        $this->smarty->assign($name, $value);
     }
 
     // 显示视图
     public function display($file)
     {
-        $file = APP.'/view/'.$file;
-        if (is_file($file)) {
-            extract($this->assign);
-            include $file;
-        }
+        $this->smarty->display($file);
     }
 }

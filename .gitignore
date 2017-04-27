@@ -1,2 +1,5 @@
 /log
 /vendor/
+/templates_c
+/cache
+

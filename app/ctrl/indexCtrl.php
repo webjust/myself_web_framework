@@ -6,11 +6,11 @@ class indexCtrl extends \core\thinkphp
 {
     public function index()
     {
-        // 初始化日志log类，访问log方法
-        \core\lib\log::init();
-
         // 实例化模型
         $model = new catModel();
         $ret = $model->lists();
+
+        $this->assign("cats", $ret);        // 传递数据
+        $this->display('index/index.html'); // 显示视图
     }
 }
